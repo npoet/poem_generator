@@ -6,6 +6,8 @@ import random
 class Rule(object):
     raw_definition = ''
     definition_lst = []
+    wordlist = []
+    rule_lst = []
 
     def __init__(self, name: str):
         self.name = name

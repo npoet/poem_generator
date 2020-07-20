@@ -34,22 +34,23 @@ def main():
         for r in rules:
             # clean raw rule names to match classes
             rule_name = r.name.lower().capitalize()
-            # raw rule to subclass
-            cls = globals()[rule_name](rule_name)
-            # update rule and append
-            cls.raw_definition = r.raw_definition
-            cls.raw_def_to_list()
+            r.name = rule_name
+            # clean raw definition
+            r.raw_def_to_list()
             # populate wordlist where applicable
             if rule_name in SENTENCE_ELEMENTS:
-                cls.wordlist = cls.populate(cls.definition_lst[0])
-                cls.rule_lst = cls.populate(cls.definition_lst[1])
-            elements.append(cls)
+                r.wordlist = r.populate(r.definition_lst[0])
+                r.rule_lst = r.populate(r.definition_lst[1])
+            elements.append(r)
 
         # create poem structure, find poem in list by attr
-        poem = next(elem for elem in elements if elem.name == 'Poem')
-        line = next(elem for elem in elements if elem.name == 'Line')
-        line.rule_lst = line.populate(line.definition_lst[0])
-        poem.num_lines = len(poem.definition_lst)
+        poem_rule_raw = next(elem for elem in elements if elem.name == 'Poem')
+        poem = Poem(poem_rule_raw.name)
+        line_rule_raw = next(elem for elem in elements if elem.name == 'Line')
+        line = Line(line_rule_raw.name)
+        line.rule_lst = line.populate(line_rule_raw.definition_lst[0])
+        poem.num_lines = len(poem_rule_raw.definition_lst)
+
         # create lines for poem
         for i in range(poem.num_lines):
             line_start_name = raw_to_name(line.select_rand(line.rule_lst))
