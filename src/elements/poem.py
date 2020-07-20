@@ -9,6 +9,11 @@ class Poem(Rule):
         self.num_lines: int
         self.lines = []
 
-    def write_poem(self):
+    def write_poem_to_console(self):
         for line in self.lines:
             print(line, "\n")
+
+    def write_poem_to_file(self, filename: str):
+        with open(filename, "w") as f:
+            for line in self.lines:
+                f.write(line)
