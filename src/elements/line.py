@@ -6,7 +6,6 @@ from .rule import Rule
 class Line(Rule):
     def __init__(self, name: str):
         super().__init__(name)
-        self.rule_lst = []
         self.rule = ''
 
     def pick_rule(self):
