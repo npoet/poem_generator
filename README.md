@@ -14,5 +14,6 @@ The script can be adjusted to write poems to a file or to the console.
 
 ##### Future Implementation:
 
+* In it's current state, the poem generation logic should likely be moved from the mainfile to the Poem class for generalization.
 * Though one of the design goals pursued here was to use an object-oriented approach, this generator could be replaced
 with a slightly more complicated recursive regex script (expanded on the mainfile).
