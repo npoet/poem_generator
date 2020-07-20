@@ -18,5 +18,13 @@ class Rule(object):
         self.definition_lst = lst
 
     @staticmethod
+    def populate(inputs: str):
+        """method for filling words or rules into attr lists to be selected"""
+        split_inputs = inputs.split("|")
+        out = [item for item in split_inputs]
+        return out
+
+    @staticmethod
     def select_rand(lst: [str]):
+        """random selection method for choosing next word/rule"""
         return random.choice(lst)

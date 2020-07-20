@@ -41,14 +41,14 @@ def main():
             cls.raw_def_to_list()
             # populate wordlist where applicable
             if rule_name in SENTENCE_ELEMENTS:
-                cls.populate_wordlist(cls.definition_lst[0])
-                cls.populate_rule_lst(cls.definition_lst[1])
+                cls.wordlist = cls.populate(cls.definition_lst[0])
+                cls.rule_lst = cls.populate(cls.definition_lst[1])
             elements.append(cls)
 
         # create poem structure, find poem in list by attr
         poem = next(elem for elem in elements if elem.name == 'Poem')
         line = next(elem for elem in elements if elem.name == 'Line')
-        line.populate_rule_lst(line.definition_lst[0])
+        line.rule_lst = line.populate(line.definition_lst[0])
         poem.num_lines = len(poem.definition_lst)
         # create lines for poem
         for i in range(poem.num_lines):

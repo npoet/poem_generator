@@ -10,11 +10,6 @@ class Line(Rule):
         self.rule_lst = []
         self.rule = ''
 
-    def populate_rule_lst(self, rules: str):
-        assert len(self.rule_lst) == 0
-        split_rules = rules.split("|")
-        self.rule_lst = [rule for rule in split_rules]
-
     def pick_rule(self):
         assert self.rule_lst != []
         self.rule = self.select_rand(self.rule_lst)[1:-1].lower().capitalize()
