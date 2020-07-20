@@ -11,9 +11,15 @@ class Poem(Rule):
 
     def write_poem_to_console(self):
         for line in self.lines:
-            print(line, "\n")
+            for word in list(line.values())[0]:
+                if word != '$END':
+                    print(word, end=' ')
+            print("")
 
     def write_poem_to_file(self, filename: str):
         with open(filename, "w") as f:
             for line in self.lines:
-                f.write(line)
+                for word in list(line.values())[0]:
+                    if word != '$END':
+                        f.write(word)
+                f.write("")
