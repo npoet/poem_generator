@@ -7,4 +7,5 @@ from .pronoun import Pronoun
 from .verb import Verb
 from .preposisiton import Preposition
 
+KEYWORDS = ['$LINEBREAK', '$END']
 SENTENCE_ELEMENTS = ['Adjective', 'Noun', 'Pronoun', 'Verb', 'Preposition']
