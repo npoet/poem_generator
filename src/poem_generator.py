@@ -38,8 +38,8 @@ def main():
                 cls.populate_wordlist(cls.definition_lst[0])
             elements.append(cls)
 
-        # create poem structure
-        poem = elements[0]
+        # create poem structure, find poem in list by attr
+        poem = next(elem for elem in elements if elem.name == 'Poem')
         poem.num_lines = len(poem.definition_lst)
 
     return
