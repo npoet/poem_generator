@@ -6,10 +6,10 @@ from .rule import Rule
 class Preposition(Rule):
     def __init__(self, name: str):
         super().__init__(name)
+        self.wordlist = []
+        self.end_list = []
 
-    wordlist = []
-
-    def populate_wordlist(self, lst: [str]):
+    def populate_wordlist(self, words: str):
         assert len(self.wordlist) == 0
-        split_words = lst.split("|")
+        split_words = words.split("|")
         self.wordlist = [word for word in split_words]
