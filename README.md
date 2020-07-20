@@ -14,6 +14,5 @@ The script can be adjusted to write poems to a file or to the console.
 
 ##### Future Implementation:
 
-* A new "Word" wrapper class should abstract re-implemented funcs common to sentence elements.
 * Though one of the design goals pursued here was to use an object-oriented approach, this generator could be replaced
 with a slightly more complicated recursive regex script (expanded on the mainfile).
