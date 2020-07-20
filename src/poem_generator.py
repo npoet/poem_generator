@@ -55,20 +55,27 @@ def main():
         for i in range(poem.num_lines):
             line_start_name = raw_to_name(line.select_rand(line.rule_lst))
             line_start_obj = next(elem for elem in elements if elem.name == line_start_name)
+            # first word of line
             line_start_word = line_start_obj.select_rand(line_start_obj.wordlist)
+            # first rule of line
             line_start_rule = raw_to_name(line_start_obj.select_rand(line_start_obj.rule_lst))
+            # init each line
             poem.lines.append({i: [line_start_word, line_start_rule]})
 
         # finish all lines
         for i in range(len(poem.lines)):
             # complete each line until keyword $END
             while list(poem.lines[i].values())[0][-1] not in KEYWORDS:
+                # get last value
                 word = list(poem.lines[i].values())[0][-1]
                 next_obj = next(elem for elem in elements if elem.name == word)
                 next_word = next_obj.select_rand(next_obj.wordlist)
                 next_rule = raw_to_name(next_obj.select_rand(next_obj.rule_lst))
+                # remove instruction from line
                 poem.lines[i][list(poem.lines[i].keys())[0]].pop(-1)
+                # add next word
                 poem.lines[i][list(poem.lines[i].keys())[0]].append(next_word)
+                # add next rule
                 poem.lines[i][list(poem.lines[i].keys())[0]].append(next_rule)
 
         # write poem
