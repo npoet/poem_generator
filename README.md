@@ -10,9 +10,10 @@ The script can be adjusted to write poems to a file or to the console.
 ##### Notes:
 
 * Input data must be in .txt format under the /src/data dir. A sample file is included.
+* This implementation may seem somewhat convoluted (because it is in some ways), as I was attemping to simultaneously demonstrate several applicable python skills while keeping with an OOP structure similar to approaches in Java or C#.
 
 ##### Future Implementation:
 
 * A new "Word" wrapper class should abstract re-implemented funcs common to sentence elements.
 * Though one of the design goals pursued here was to use an object-oriented approach, this generator could be replaced
-with a regex script (expanded on the mainfile)
+with a slightly more complicated recursive regex script (expanded on the mainfile).
