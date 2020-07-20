@@ -60,6 +60,7 @@ def main():
 
         # finish all lines
         for i in range(len(poem.lines)):
+            # complete each line until keyword $END
             while list(poem.lines[i].values())[0][-1] not in KEYWORDS:
                 word = list(poem.lines[i].values())[0][-1]
                 next_obj = next(elem for elem in elements if elem.name == word)
