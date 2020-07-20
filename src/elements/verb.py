@@ -4,4 +4,5 @@ from .rule import Rule
 
 
 class Verb(Rule):
-    pass
+    def __init__(self, name: str):
+        super().__init__(name)
